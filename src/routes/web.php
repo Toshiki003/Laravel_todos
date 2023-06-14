@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 // 以下、追加。Laravel5.3以降の書き方。
-Route::get('todos', 'TodosController@index');
-Route::get('todos/create', 'TodosController@create');
-Route::post('todos', 'TodosController@store');
-Route::get('todos/{id}', 'TodosController@show');
-Route::get('todos/{id}/edit', 'TodosController@edit');
-Route::put('todos/{id}', 'TodosController@update');
-Route::delete('todos/{id}', 'TodosController@destroy');
+Route::get('todos', 'TodoController@index');
+Route::get('todos/create', 'TodoController@create');
+Route::post('todos', 'TodoController@store');
+Route::get('todos/{id}', 'TodoController@show');
+Route::get('todos/{id}/edit', 'TodoController@edit');
+Route::put('todos/{id}', 'TodoController@update');
+Route::delete('todos/{id}', 'TodoController@destroy');
