@@ -26,7 +26,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        //
+        return view('todo.create'); // src/resources/views/todo/create.blade.phpを表示する処理を追加
     }
 
     /**
@@ -37,7 +37,17 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    // todoモデルのインスタンスを作成
+            $todo = new Todo();
+            // todoモデルの各プロパティに値を代入
+            $todo->title = $request->input('title'); // $request->titleでもOK
+            // todoモデルのインスタンスを保存
+            $todo->save();
+            // ルートにリダイレクト
+            return redirect('/todos')->with(
+                'status',
+                $todo->title . 'を登録しました。'
+            ); // 保存後、一覧画面にリダイレクトする処理を追加
     }
 
     /**
