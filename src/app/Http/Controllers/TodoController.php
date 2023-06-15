@@ -109,6 +109,15 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = Todo::find($id);
+        $todo->delete();
+
+        return redirect('todos')->with(
+            'status',
+            $todo->title . 'を削除しました。'
+        ); // 削除後、一覧画面にリダイレクトする処理を追加
+        // ブラウザで「本当に削除しますか？」といった確認表示をするには、Railsではコントローラに処理を書いていた。
+        // Laravelでは、JavaScriptを使って確認表示をすることが多い。
+        // つまり、ビューファイルにJavaScriptを書くことになる。Railsは便利すぎだったのかもしれん
     }
 }
