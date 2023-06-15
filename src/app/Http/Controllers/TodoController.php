@@ -58,7 +58,11 @@ class TodoController extends Controller
      */
     public function show($id)
     {
-        //
+        // todoモデルからidが$idと一致するレコードを取得
+        $todo = Todo::find($id);
+        // viewにtodoというキーで$todoを渡す
+        return view('todo/show', compact('todo')); // src/resources/views/todo/show.blade.phpを表示する処理を追加
+        // 上記の'todo/show'は、'todo.show'と書いてもOK。Laravelでは、ドットで区切られた文字列は階層構造を表す。ドットで区切られた文字列を使うことで、view関数の第一引数に指定した文字列に対応するビューファイルを表示することができる。
     }
 
     /**
