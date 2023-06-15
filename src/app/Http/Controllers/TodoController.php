@@ -73,7 +73,11 @@ class TodoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $todo = Todo::find($id); // todoモデルからidが$idと一致するレコードを取得。Railsでいうset_todoと同じ。
+        // 疑問：LaravelではRailsのように処理をまとめるフィルタ機能はあるのかな？
+
+        return view('todo.edit', compact('todo')); // src/resources/views/todo/edit.blade.phpを表示する処理を追加
+        // compact関数で指定したtodoは、view関数の第二引数で指定した変数名と同じになる。つまり、view関数の第二引数で指定した変数名を使って、ビューファイルに渡すことができる。
     }
 
     /**
