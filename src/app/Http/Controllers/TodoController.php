@@ -89,7 +89,16 @@ class TodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $todo = Todo::find($id);
+
+        $todo->title = $request->input('title');
+        $todo->save();
+
+        return redirect('todos')->with(
+            'status',
+            $todo->title . 'を更新しました。'
+        ); // 更新後、一覧画面にリダイレクトする処理を追加。上の行の.は、文字列を連結するためのもの。
+        // なので、flashメッセージで表示される内容としては「~を更新しました。」となる。 PHPの連結演算子.なので、Railsのように+でないことで覚えとこ。
     }
 
     /**
