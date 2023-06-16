@@ -38,6 +38,15 @@
 
 <br>
 
+6/16追記
+
+上記の疑問を調べる形で、Notionにまとめた。
+
+[Laravel学習が必要になった方へ【Railsと比較したメモです】 Notionまとめ](https://chief-era-2fd.notion.site/Laravel-Rails-f6b0aa73dcc54fba977f1092dd3c4817?pvs=4)
+
+
+<br>
+
 ### 完成形👇
 
 
